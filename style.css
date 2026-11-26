@@ -2,6 +2,16 @@
   box-sizing: border-box;
 }
 
+/* แอนิเมชันป้ายลอยเบาๆ */
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 /* ภารกิจที่ 2: จัดสไตล์ <body> - พื้นหลังเหลืองเลมอนครีมสดใส พร้อมลายจุดน่ารัก */
 body {
   background-color: #fff3b0;
@@ -29,7 +39,7 @@ header {
   margin-bottom: 20px;
 }
 
-/* หัวข้อหลัก "สวัสดีค่ะ" จัดกึ่งกลางเป๊ะ + สีสดใส (นิ่งสนิท ไม่เคลื่อนไหว) */
+/* หัวข้อหลัก "สวัสดีค่ะ" จัดกึ่งกลางเป๊ะ + สีสดใส + ลอยดุ๊กดิ๊ก */
 header h1 {
   display: inline-flex;
   justify-content: center;
@@ -47,7 +57,14 @@ header h1 {
   border: 3px solid #3b2012;
   box-shadow: 4px 5px 0px #3b2012;
   text-shadow: 1px 1px 0px rgba(59, 32, 18, 0.4);
+  animation: floatBadge 2.8s ease-in-out infinite;
   cursor: default;
+  transition: transform 0.2s ease;
+}
+
+header h1:hover {
+  animation-play-state: paused;
+  transform: scale(1.06) rotate(-2deg);
 }
 
 /* ภารกิจที่ 3: จัดสไตล์ .card - กรอบมีมิติหลายชั้น + ลายตารางกริดบางๆ */
@@ -61,15 +78,16 @@ header h1 {
     linear-gradient(90deg, rgba(255, 179, 0, 0.08) 1px, transparent 1px);
   background-size: 20px 20px;
   border: 3.5px solid #3b2012;
-  border-top: 28px solid #ffb300;
+  border-top: 28px solid #ffb300; /* แถบหัวหน้าต่างด้านบน */
   box-shadow: 
-    inset 0 0 0 6px #fff8e1,
+    inset 0 0 0 6px #fff8e1, /* ขอบด้านในสีครีม */
     9px 9px 0px #f57c00, 
-    13px 13px 0px #3b2012,
+    13px 13px 0px #3b2012, /* เงาซ้อน 2 ชั้นเพิ่มมิติ */
     0 22px 45px rgba(59, 32, 18, 0.22);
   margin: 0 auto;
   padding: 36px 28px 32px;
   border-radius: 28px;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
 }
 
 /* ลูกเล่นเส้นประกรอบด้านในตัวการ์ด */
@@ -93,6 +111,15 @@ header h1 {
   color: #3b2012;
 }
 
+.card:hover {
+  transform: translate(-3px, -4px);
+  box-shadow: 
+    inset 0 0 0 6px #fff8e1,
+    12px 12px 0px #f57c00, 
+    16px 16px 0px #3b2012,
+    0 26px 50px rgba(59, 32, 18, 0.26);
+}
+
 /* ภารกิจที่ 4: จัดสไตล์รูปภาพ <img> */
 .avatar-box {
   position: relative;
@@ -112,6 +139,11 @@ header h1 {
   background: linear-gradient(135deg, #ffd54f, #ff8f00);
   display: block;
   box-shadow: 4px 5px 0px #ffb300;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card img:hover {
+  transform: scale(1.08) rotate(-4deg);
 }
 
 /* ภารกิจที่ 5: จัดสไตล์ชื่อ #profile-name */
@@ -125,10 +157,11 @@ header h1 {
   margin: 0 0 14px;
 }
 
-/* ภารกิจที่ 6: จัดสไตล์ .bio - ป้ายสีเหลืองสดใส */
+/* ภารกิจที่ 6: จัดสไตล์ .bio - ป้ายสีเหลืองสดใสพร้อมลูกเล่นแสงวิ่งพาดผ่าน */
 .bio {
   position: relative;
   z-index: 1;
+  overflow: hidden;
   color: #3b2012;
   background: linear-gradient(90deg, #ffe082, #ffd54f);
   border: 2.5px solid #3b2012;
@@ -142,7 +175,22 @@ header h1 {
   margin: 0 0 24px;
 }
 
-/* หัวข้อย่อย */
+.bio::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+  transition: left 0.6s ease;
+}
+
+.card:hover .bio::after {
+  left: 140%;
+}
+
+/* หัวข้อย่อยแบบป้ายแท็กเล็กๆ */
 h3 {
   position: relative;
   z-index: 1;
@@ -175,7 +223,7 @@ ul {
     inset -2px -2px 0px #ffffff;
 }
 
-/* ปุ่มรายการแบบ 3D */
+/* ปุ่มรายการแบบ 3D เด้งดึ๋งและกดยุบได้จริง */
 ul li {
   background-color: #ffffff;
   color: #3b2012;
@@ -187,6 +235,8 @@ ul li {
   box-shadow: 3px 3px 0px #3b2012;
   font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 ul li span {
@@ -196,6 +246,20 @@ ul li span {
 
 ul li:last-child {
   margin-bottom: 0;
+}
+
+/* เอฟเฟกต์ปุ่มลอยและเปลี่ยนสีเข้มสดใสเมื่อชี้เมาส์ */
+ul li:hover {
+  transform: translate(-3px, -3px);
+  background-color: #ffe082;
+  border-left-color: #fb8c00;
+  box-shadow: 6px 6px 0px #3b2012;
+}
+
+/* เอฟเฟกต์ปุ่มยุบลงเมื่อกดคลิก */
+ul li:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #3b2012;
 }
 
 /* จัดส่วนทักษะให้เรียงเป็นปุ่มแท็กสดใส */
@@ -212,4 +276,11 @@ ul li:last-child {
   border-left: 2.5px solid #3b2012;
   background-color: #fffdf5;
   font-weight: 600;
+}
+
+.skills-list li:hover {
+  background-color: #ffb300;
+  color: #3b2012;
+  transform: translate(-2px, -4px) rotate(1deg);
+  box-shadow: 5px 5px 0px #3b2012;
 }
