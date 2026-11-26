@@ -5,95 +5,98 @@
 
 /* ภารกิจที่ 2: จัดสไตล์ <body> */
 body {
-  background: linear-gradient(135deg, #dff5f2 0%, #e5f3f8 50%, #f8eee3 100%);
+  background: linear-gradient(145deg, #f5eee5 0%, #eee6dc 55%, #e5eee8 100%);
   font-family: 'Prompt', Arial, sans-serif;
   min-height: 100vh;
   margin: 0;
-  padding: 30px 20px;
+  padding: 35px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #5b4038;
+  color: #5a4035;
 }
 
+/* หัวข้อหลัก */
 header h1 {
-  color: #5b4038;
-  font-size: 27px;
+  color: #5a4035;
+  font-size: 28px;
   font-weight: 600;
   text-align: center;
-  margin: 0 0 24px;
-  letter-spacing: 0.5px;
+  margin: 0 0 25px;
+  letter-spacing: 0.4px;
 }
 
 /* ภารกิจที่ 3: จัดสไตล์ .card */
 .card {
   width: 100%;
-  max-width: 380px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid #d6eeea;
-  border-top: 6px solid #56c9d0;
-  box-shadow: 0 12px 35px rgba(91, 64, 56, 0.10);
+  max-width: 390px;
+  background-color: #fffdf9;
+  border: 1px solid #e7d9ca;
+  border-top: 7px solid #967565;
+  box-shadow: 0 15px 40px rgba(90, 64, 53, 0.12);
   margin: 0 auto;
-  padding: 34px 28px;
-  border-radius: 24px;
+  padding: 35px 30px;
+  border-radius: 26px;
+  position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 18px 40px rgba(86, 201, 208, 0.18);
+  box-shadow: 0 20px 45px rgba(90, 64, 53, 0.17);
 }
 
 /* ภารกิจที่ 4: จัดสไตล์รูปภาพ <img> */
 .card img {
-  width: 115px;
-  height: 115px;
+  width: 118px;
+  height: 118px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #8edbd7;
+  border: 4px solid #c7aa96;
   padding: 4px;
-  background-color: #ffffff;
+  background-color: #fffdf9;
   display: block;
-  margin: 0 auto 18px;
-  box-shadow: 0 5px 15px rgba(86, 201, 208, 0.15);
+  margin: 0 auto 19px;
+  box-shadow: 0 5px 16px rgba(90, 64, 53, 0.12);
   transition: transform 0.3s ease;
 }
 
 .card img:hover {
-  transform: scale(1.06);
+  transform: scale(1.05) rotate(2deg);
 }
 
 /* ภารกิจที่ 5: จัดสไตล์ชื่อ #profile-name */
 #profile-name {
-  color: #5b4038;
-  font-size: 23px;
+  color: #5a4035;
+  font-size: 24px;
   font-weight: 600;
   text-align: center;
-  margin: 0 0 12px;
+  margin: 0 0 13px;
 }
 
 /* ภารกิจที่ 6: จัดสไตล์ .bio */
 .bio {
-  color: #367f7d;
-  background: linear-gradient(135deg, #e1f6f2, #e5f4f8);
-  border: 1px solid #d0ece8;
+  color: #6e6255;
+  background-color: #f4eee5;
+  border: 1px solid #e9ddcf;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
-  line-height: 1.7;
-  padding: 12px 15px;
-  border-radius: 14px;
-  margin: 0 0 25px;
+  line-height: 1.8;
+  padding: 13px 16px;
+  border-radius: 15px;
+  margin: 0 0 26px;
 }
 
+/* หัวข้อย่อย */
 h3 {
-  color: #76564a;
+  color: #80604e;
   font-size: 16px;
   font-weight: 600;
-  margin: 0 0 12px;
-  padding-bottom: 9px;
-  border-bottom: 2px solid #d9efeb;
+  margin: 0 0 13px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #dce9e1;
 }
 
 /* ภารกิจที่ 7: จัดสไตล์ <ul> */
@@ -101,22 +104,22 @@ ul {
   list-style-type: none;
   padding: 12px;
   margin: 0;
-  background-color: #f8f7f2;
-  border: 1px solid #e8e0d5;
+  background-color: #f8f5ef;
+  border: 1px solid #e9dfd3;
   border-radius: 16px;
 }
 
 ul li {
-  background-color: #ffffff;
-  color: #5b4038;
-  padding: 11px 14px;
+  background-color: #fffdf9;
+  color: #655044;
+  padding: 12px 14px;
   margin-bottom: 9px;
   border-radius: 11px;
-  border-left: 4px solid #56c9d0;
+  border-left: 4px solid #a6c4b6;
   font-size: 14px;
-  line-height: 1.6;
-  box-shadow: 0 2px 7px rgba(91, 64, 56, 0.05);
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  line-height: 1.65;
+  box-shadow: 0 2px 7px rgba(90, 64, 53, 0.05);
+  transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
 ul li:last-child {
@@ -124,7 +127,7 @@ ul li:last-child {
 }
 
 ul li:hover {
-  transform: translateX(5px);
-  border-left-color: #9b7868;
-  background-color: #f0faf8;
+  transform: translateX(4px);
+  background-color: #edf4ef;
+  border-left-color: #967565;
 }
