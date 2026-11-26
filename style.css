@@ -1,286 +1,243 @@
+
 * {
   box-sizing: border-box;
 }
 
-/* แอนิเมชันป้ายลอยเบาๆ */
-@keyframes floatBadge {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-/* ภารกิจที่ 2: จัดสไตล์ <body> - พื้นหลังเหลืองเลมอนครีมสดใส พร้อมลายจุดน่ารัก */
 body {
-  background-color: #fff3b0;
-  background-image: 
-    radial-gradient(#ffd54f 2px, transparent 2px),
-    linear-gradient(135deg, #fff176 0%, #fff9c4 50%, #ffecb3 100%);
-  background-size: 28px 28px, 100% 100%;
+  background:
+    radial-gradient(circle at 8% 12%, #dcece2 0, transparent 25%),
+    radial-gradient(circle at 95% 90%, #dcebea 0, transparent 27%),
+    #f3eae0;
   font-family: 'Prompt', Arial, sans-serif;
   min-height: 100vh;
   margin: 0;
-  padding: 35px 20px;
+  padding: 50px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #3b2012;
+  color: #60483c;
 }
 
-/* จัดให้ header อยู่กึ่งกลางสมบูรณ์ */
+/* หัวข้อหลัก */
 header {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 440px;
   margin-bottom: 20px;
 }
 
-/* หัวข้อหลัก "สวัสดีค่ะ" จัดกึ่งกลางเป๊ะ + สีสดใส + ลอยดุ๊กดิ๊ก */
 header h1 {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, #ffb300, #fb8c00);
-  color: #ffffff;
-  font-size: 22px;
+  color: #60483c;
+  font-size: 25px;
   font-weight: 700;
-  text-align: center;
-  padding: 10px 32px;
-  border-radius: 50px;
+  text-align: left;
   margin: 0;
-  letter-spacing: 0.8px;
-  border: 3px solid #3b2012;
-  box-shadow: 4px 5px 0px #3b2012;
-  text-shadow: 1px 1px 0px rgba(59, 32, 18, 0.4);
-  animation: floatBadge 2.8s ease-in-out infinite;
-  cursor: default;
-  transition: transform 0.2s ease;
+  letter-spacing: -0.5px;
 }
 
-header h1:hover {
-  animation-play-state: paused;
-  transform: scale(1.06) rotate(-2deg);
+header h1::after {
+  content: " ✳";
+  color: #8eafa0;
 }
 
-/* ภารกิจที่ 3: จัดสไตล์ .card - กรอบมีมิติหลายชั้น + ลายตารางกริดบางๆ */
+/* การ์ดโปรไฟล์ */
 .card {
-  position: relative;
   width: 100%;
-  max-width: 410px;
-  background-color: #fffdf5;
-  background-image: 
-    linear-gradient(rgba(255, 179, 0, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 179, 0, 0.08) 1px, transparent 1px);
-  background-size: 20px 20px;
-  border: 3.5px solid #3b2012;
-  border-top: 28px solid #ffb300; /* แถบหัวหน้าต่างด้านบน */
-  box-shadow: 
-    inset 0 0 0 6px #fff8e1, /* ขอบด้านในสีครีม */
-    9px 9px 0px #f57c00, 
-    13px 13px 0px #3b2012, /* เงาซ้อน 2 ชั้นเพิ่มมิติ */
-    0 22px 45px rgba(59, 32, 18, 0.22);
+  max-width: 440px;
+  background: #fffdf8;
+  border: 1px solid #e7dace;
+  border-radius: 22px;
   margin: 0 auto;
-  padding: 36px 28px 32px;
-  border-radius: 28px;
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
-}
-
-/* ลูกเล่นเส้นประกรอบด้านในตัวการ์ด */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border: 2px dashed #f9a825;
-  border-radius: 18px;
-  pointer-events: none;
-}
-
-/* ลูกเล่นปุ่ม 3 จุดสไตล์หน้าต่างแอปบนแถบสีเหลือง */
-.card::after {
-  content: "● ● ●";
-  position: absolute;
-  top: -23px;
-  left: 20px;
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: #3b2012;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(86, 62, 48, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translate(-3px, -4px);
-  box-shadow: 
-    inset 0 0 0 6px #fff8e1,
-    12px 12px 0px #f57c00, 
-    16px 16px 0px #3b2012,
-    0 26px 50px rgba(59, 32, 18, 0.26);
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(86, 62, 48, 0.16);
 }
 
-/* ภารกิจที่ 4: จัดสไตล์รูปภาพ <img> */
+/* ส่วนหัวการ์ด */
+.card::before {
+  content: "MY LITTLE SPACE     •     PROFILE";
+  display: block;
+  background: #60483c;
+  color: #f8eee3;
+  padding: 13px 25px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* กล่องรูปโปรไฟล์ */
 .avatar-box {
   position: relative;
-  width: 126px;
-  height: 126px;
-  margin: 0 auto 18px;
-  z-index: 1;
+  width: 150px;
+  height: 165px;
+  margin: 28px auto 20px;
+  padding: 6px;
+  background: #e4eee5;
+  border: 1px solid #cbded1;
+  border-radius: 48% 48% 18px 18px;
+  transform: rotate(-2deg);
 }
 
+/* รูปโปรไฟล์ */
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #3b2012;
-  padding: 4px;
-  background: linear-gradient(135deg, #ffd54f, #ff8f00);
   display: block;
-  box-shadow: 4px 5px 0px #ffb300;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 48% 48% 15px 15px;
+  border: 3px solid #fffdf8;
+  background: #dcece2;
+  transition: transform 0.35s ease;
 }
 
 .card img:hover {
-  transform: scale(1.08) rotate(-4deg);
+  transform: scale(1.04) rotate(2deg);
 }
 
-/* ภารกิจที่ 5: จัดสไตล์ชื่อ #profile-name */
+/* ชื่อโปรไฟล์ */
 #profile-name {
-  position: relative;
-  z-index: 1;
-  color: #3b2012;
-  font-size: 22px;
+  color: #60483c;
+  font-size: 25px;
   font-weight: 700;
   text-align: center;
-  margin: 0 0 14px;
+  margin: 0 20px 8px;
+  letter-spacing: 0.2px;
 }
 
-/* ภารกิจที่ 6: จัดสไตล์ .bio - ป้ายสีเหลืองสดใสพร้อมลูกเล่นแสงวิ่งพาดผ่าน */
+/* คำแนะนำตัว */
 .bio {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  color: #3b2012;
-  background: linear-gradient(90deg, #ffe082, #ffd54f);
-  border: 2.5px solid #3b2012;
-  box-shadow: 4px 4px 0px #fb8c00;
-  font-size: 14px;
-  font-weight: 600;
+  display: block;
+  width: fit-content;
+  max-width: calc(100% - 40px);
+  margin: 0 auto 28px;
+  padding: 9px 18px;
+  color: #607e72;
+  background: #edf4ec;
+  border: 1px solid #dce9dd;
+  border-radius: 8px 18px 18px 18px;
+  font-size: 13px;
+  line-height: 1.8;
   text-align: center;
-  line-height: 1.6;
-  padding: 10px 16px;
-  border-radius: 15px;
-  margin: 0 0 24px;
 }
 
-.bio::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
-  transition: left 0.6s ease;
-}
-
-.card:hover .bio::after {
-  left: 140%;
-}
-
-/* หัวข้อย่อยแบบป้ายแท็กเล็กๆ */
-h3 {
-  position: relative;
-  z-index: 1;
-  color: #3b2012;
+/* เนื้อหาภายใน */
+.card h3 {
+  color: #795a49;
   font-size: 15px;
   font-weight: 700;
-  margin: 0 0 12px;
-  padding-bottom: 8px;
-  border-bottom: 2.5px dashed #ffb300;
-  display: flex;
-  align-items: center;
+  margin: 25px 25px 13px;
+  padding: 0 0 9px;
+  border-bottom: 1px solid #e8ded2;
 }
 
+.card h3::before {
+  content: "✳";
+  color: #91b6a4;
+  margin-right: 9px;
+}
+
+/* ระยะห่างแต่ละส่วน */
 .section-gap {
-  margin-top: 22px;
+  margin-top: 25px;
 }
 
-/* ภารกิจที่ 7: จัดสไตล์ <ul> - กล่องหลุมยุบมีมิติ (Inset 3D Box) */
+/* กล่องข้อมูล */
 ul {
-  position: relative;
-  z-index: 1;
-  list-style-type: none;
-  padding: 14px;
-  margin: 0;
-  background-color: #fff3c4;
-  border: 2.5px solid #3b2012;
-  border-radius: 18px;
-  box-shadow: 
-    inset 3px 3px 0px rgba(245, 124, 0, 0.25),
-    inset -2px -2px 0px #ffffff;
-}
-
-/* ปุ่มรายการแบบ 3D เด้งดึ๋งและกดยุบได้จริง */
-ul li {
-  background-color: #ffffff;
-  color: #3b2012;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  border: 2.5px solid #3b2012;
-  border-left: 7px solid #ffb300;
-  box-shadow: 3px 3px 0px #3b2012;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-ul li span {
-  color: #e65100;
-  font-weight: 700;
-}
-
-ul li:last-child {
-  margin-bottom: 0;
-}
-
-/* เอฟเฟกต์ปุ่มลอยและเปลี่ยนสีเข้มสดใสเมื่อชี้เมาส์ */
-ul li:hover {
-  transform: translate(-3px, -3px);
-  background-color: #ffe082;
-  border-left-color: #fb8c00;
-  box-shadow: 6px 6px 0px #3b2012;
-}
-
-/* เอฟเฟกต์ปุ่มยุบลงเมื่อกดคลิก */
-ul li:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px #3b2012;
-}
-
-/* จัดส่วนทักษะให้เรียงเป็นปุ่มแท็กสดใส */
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 9px;
 }
 
+/* รายการข้อมูล */
+ul li {
+  min-width: 0;
+  background: #f7f2ea;
+  color: #685044;
+  padding: 12px 13px;
+  margin: 0;
+  border: 1px solid #eee4d8;
+  border-radius: 12px;
+  border-left: 3px solid #a9c8b8;
+  font-size: 13px;
+  line-height: 1.6;
+  transition: all 0.22s ease;
+}
+
+ul li span {
+  display: block;
+  color: #8a7565;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+ul li:hover {
+  background: #eaf2e9;
+  border-left-color: #8eafa0;
+  transform: translateY(-2px);
+}
+
+/* ทักษะแบบ Tag */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 28px;
+}
+
 .skills-list li {
-  margin-bottom: 0;
-  flex: 1 1 auto;
-  text-align: center;
-  border-left: 2.5px solid #3b2012;
-  background-color: #fffdf5;
-  font-weight: 600;
+  flex: 0 0 auto;
+  width: auto;
+  background: #eaf2e9;
+  color: #607e72;
+  border: 1px solid #d8e6d9;
+  border-radius: 30px;
+  padding: 8px 15px;
+  font-size: 12px;
+}
+
+.skills-list li::before {
+  content: "✿ ";
+  color: #967565;
 }
 
 .skills-list li:hover {
-  background-color: #ffb300;
-  color: #3b2012;
-  transform: translate(-2px, -4px) rotate(1deg);
-  box-shadow: 5px 5px 0px #3b2012;
+  background: #60483c;
+  color: #fff9f1;
+  border-color: #60483c;
+  transform: translateY(-2px);
+}
+
+/* มือถือ */
+@media (max-width: 420px) {
+  body {
+    padding: 30px 14px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  .card {
+    border-radius: 18px;
+  }
+
+  ul {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .card h3 {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
 }
