@@ -1,11 +1,10 @@
-
 * {
   box-sizing: border-box;
 }
 
-/* ภารกิจที่ 2: จัดสไตล์ <body> */
+/* ภารกิจที่ 2: จัดสไตล์ <body> - พื้นหลังฟ้าเทอร์ควอยซ์ไล่เฉดมิ้นท์ครีม */
 body {
-  background: linear-gradient(145deg, #f5eee5 0%, #eee6dc 55%, #e5eee8 100%);
+  background: linear-gradient(135deg, #c2f0ec 0%, #e0f7fa 45%, #f5ebe0 100%);
   font-family: 'Prompt', Arial, sans-serif;
   min-height: 100vh;
   margin: 0;
@@ -14,120 +13,174 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #5a4035;
+  color: #4a3022;
 }
 
-/* หัวข้อหลัก */
+/* หัวข้อหลักแบบป้าย Tag มีมิติ */
 header h1 {
-  color: #5a4035;
-  font-size: 28px;
+  background-color: #4a3022;
+  color: #fdf8f2;
+  font-size: 20px;
   font-weight: 600;
   text-align: center;
-  margin: 0 0 25px;
-  letter-spacing: 0.4px;
+  padding: 8px 26px;
+  border-radius: 50px;
+  margin: 0 0 22px;
+  letter-spacing: 0.5px;
+  border: 2px solid #26c6da;
+  box-shadow: 0 5px 0 #26a69a;
 }
 
-/* ภารกิจที่ 3: จัดสไตล์ .card */
+/* ภารกิจที่ 3: จัดสไตล์ .card - กรอบด้านในสีครีมนม + ขอบและเงามีมิติ 3D */
 .card {
   width: 100%;
-  max-width: 390px;
-  background-color: #fffdf9;
-  border: 1px solid #e7d9ca;
-  border-top: 7px solid #967565;
-  box-shadow: 0 15px 40px rgba(90, 64, 53, 0.12);
+  max-width: 400px;
+  background-color: #fcf8f2; /* สีครีมนมละมุน */
+  border: 3px solid #4a3022; /* ขอบน้ำตาลช็อกโกแลต */
+  border-top: 10px solid #26c6da; /* แถบฟ้าเทอร์ควอยซ์ด้านบน */
+  box-shadow: 8px 8px 0px #26a69a, 0 18px 35px rgba(74, 48, 34, 0.15);
   margin: 0 auto;
-  padding: 35px 30px;
-  border-radius: 26px;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 32px 28px;
+  border-radius: 28px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 45px rgba(90, 64, 53, 0.17);
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0px #26a69a, 0 22px 40px rgba(74, 48, 34, 0.18);
 }
 
 /* ภารกิจที่ 4: จัดสไตล์รูปภาพ <img> */
+.avatar-box {
+  position: relative;
+  width: 124px;
+  height: 124px;
+  margin: 0 auto 18px;
+}
+
 .card img {
-  width: 118px;
-  height: 118px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #c7aa96;
+  border: 4px solid #4a3022;
   padding: 4px;
-  background-color: #fffdf9;
+  background: linear-gradient(135deg, #80deea, #a7ffeb);
   display: block;
-  margin: 0 auto 19px;
-  box-shadow: 0 5px 16px rgba(90, 64, 53, 0.12);
+  box-shadow: 4px 4px 0px #26c6da;
   transition: transform 0.3s ease;
 }
 
 .card img:hover {
-  transform: scale(1.05) rotate(2deg);
+  transform: scale(1.06) rotate(-3deg);
 }
 
 /* ภารกิจที่ 5: จัดสไตล์ชื่อ #profile-name */
 #profile-name {
-  color: #5a4035;
-  font-size: 24px;
-  font-weight: 600;
+  color: #3e2418;
+  font-size: 22px;
+  font-weight: 700;
   text-align: center;
-  margin: 0 0 13px;
+  margin: 0 0 12px;
 }
 
-/* ภารกิจที่ 6: จัดสไตล์ .bio */
+/* ภารกิจที่ 6: จัดสไตล์ .bio - ป้ายแคปซูลสีมิ้นท์ขอบช็อกโกแลต */
 .bio {
-  color: #6e6255;
-  background-color: #f4eee5;
-  border: 1px solid #e9ddcf;
+  color: #005b52;
+  background-color: #d4f5f0;
+  border: 2px solid #26a69a;
+  box-shadow: 3px 3px 0px #4a3022;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
-  line-height: 1.8;
-  padding: 13px 16px;
-  border-radius: 15px;
-  margin: 0 0 26px;
+  line-height: 1.6;
+  padding: 10px 16px;
+  border-radius: 14px;
+  margin: 0 0 24px;
 }
 
 /* หัวข้อย่อย */
 h3 {
-  color: #80604e;
+  color: #4a3022;
   font-size: 16px;
   font-weight: 600;
-  margin: 0 0 13px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #dce9e1;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed #80cbc4;
+  display: flex;
+  align-items: center;
 }
 
-/* ภารกิจที่ 7: จัดสไตล์ <ul> */
+.section-gap {
+  margin-top: 22px;
+}
+
+/* ภารกิจที่ 7: จัดสไตล์ <ul> - กล่องครีมเข้มตัดกับกรอบหลัก */
 ul {
   list-style-type: none;
   padding: 12px;
   margin: 0;
-  background-color: #f8f5ef;
-  border: 1px solid #e9dfd3;
-  border-radius: 16px;
+  background-color: #f4ece1;
+  border: 2px solid #d7c4b2;
+  border-radius: 18px;
 }
 
+/* ปุ่มรายการแบบ 3D กดยุบได้จริง */
 ul li {
-  background-color: #fffdf9;
-  color: #655044;
-  padding: 12px 14px;
-  margin-bottom: 9px;
-  border-radius: 11px;
-  border-left: 4px solid #a6c4b6;
+  background-color: #ffffff;
+  color: #4a3022;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  border: 2px solid #4a3022;
+  border-left: 6px solid #26c6da;
+  box-shadow: 3px 3px 0px #c8b29e;
   font-size: 14px;
-  line-height: 1.65;
-  box-shadow: 0 2px 7px rgba(90, 64, 53, 0.05);
-  transition: transform 0.25s ease, background-color 0.25s ease;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+ul li span {
+  color: #00838f;
+  font-weight: 600;
 }
 
 ul li:last-child {
   margin-bottom: 0;
 }
 
+/* เอฟเฟกต์ปุ่มลอยและเปลี่ยนสีเมื่อชี้เมาส์ */
 ul li:hover {
-  transform: translateX(4px);
-  background-color: #edf4ef;
-  border-left-color: #967565;
+  transform: translate(-2px, -2px);
+  background-color: #e0f7fa;
+  border-left-color: #4a3022;
+  box-shadow: 5px 5px 0px #26a69a;
+}
+
+/* เอฟเฟกต์ปุ่มยุบลงเมื่อคลิก */
+ul li:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #4a3022;
+}
+
+/* จัดส่วนทักษะให้เรียงเป็นปุ่มแท็กน่ารักๆ */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skills-list li {
+  margin-bottom: 0;
+  flex: 1 1 auto;
+  text-align: center;
+  border-left: 2px solid #4a3022;
+  background-color: #fffdf9;
+}
+
+.skills-list li:hover {
+  background-color: #4a3022;
+  color: #fdf8f2;
+  box-shadow: 4px 4px 0px #26c6da;
 }
