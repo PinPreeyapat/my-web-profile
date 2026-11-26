@@ -3,16 +3,15 @@
   box-sizing: border-box;
 }
 
-/* พื้นหลังหลัก */
 body {
   background:
-    radial-gradient(circle at 10% 15%, rgba(177, 220, 207, 0.35), transparent 28%),
-    radial-gradient(circle at 90% 85%, rgba(191, 225, 222, 0.4), transparent 30%),
-    linear-gradient(135deg, #f3e9dd 0%, #f8f3eb 55%, #e8f1e9 100%);
+    radial-gradient(circle at 8% 12%, #dcece2 0, transparent 25%),
+    radial-gradient(circle at 95% 90%, #dcebea 0, transparent 27%),
+    #f3eae0;
   font-family: 'Prompt', Arial, sans-serif;
   min-height: 100vh;
   margin: 0;
-  padding: 45px 20px;
+  padding: 50px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,65 +20,68 @@ body {
 }
 
 /* หัวข้อหลัก */
+header {
+  width: 100%;
+  max-width: 440px;
+  margin-bottom: 20px;
+}
+
 header h1 {
-  display: inline-block;
-  background: #60483c;
-  color: #fff9f1;
-  font-size: 19px;
-  font-weight: 600;
-  text-align: center;
-  padding: 10px 25px;
-  border-radius: 30px;
-  margin: 0 0 25px;
-  letter-spacing: 0.3px;
-  box-shadow: 0 5px 14px rgba(96, 72, 60, 0.16);
-  border: 2px solid #f5e8d9;
+  color: #60483c;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: left;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+header h1::after {
+  content: " ✳";
+  color: #8eafa0;
 }
 
 /* การ์ดโปรไฟล์ */
 .card {
   width: 100%;
-  max-width: 400px;
-  background: #fffdf9;
-  border: 1px solid #e9ded1;
-  border-radius: 25px;
-  box-shadow:
-    0 15px 35px rgba(96, 72, 60, 0.10),
-    0 3px 8px rgba(96, 72, 60, 0.04);
+  max-width: 440px;
+  background: #fffdf8;
+  border: 1px solid #e7dace;
+  border-radius: 22px;
   margin: 0 auto;
-  padding: 34px 29px;
-  position: relative;
+  padding: 0;
   overflow: hidden;
+  box-shadow: 0 16px 45px rgba(86, 62, 48, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* แถบสีตกแต่งด้านบน */
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 7px;
-  background: linear-gradient(
-    90deg,
-    #9bbeb0,
-    #b9d9ce,
-    #c5dedb
-  );
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(86, 62, 48, 0.16);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 42px rgba(96, 72, 60, 0.14);
+/* ส่วนหัวการ์ด */
+.card::before {
+  content: "MY LITTLE SPACE     •     PROFILE";
+  display: block;
+  background: #60483c;
+  color: #f8eee3;
+  padding: 13px 25px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
 /* กล่องรูปโปรไฟล์ */
 .avatar-box {
   position: relative;
-  width: 125px;
-  height: 125px;
-  margin: 0 auto 20px;
+  width: 150px;
+  height: 165px;
+  margin: 28px auto 20px;
+  padding: 6px;
+  background: #e4eee5;
+  border: 1px solid #cbded1;
+  border-radius: 48% 48% 18px 18px;
+  transform: rotate(-2deg);
 }
 
 /* รูปโปรไฟล์ */
@@ -87,127 +89,125 @@ header h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #fffdf9;
-  padding: 3px;
-  background: linear-gradient(135deg, #9bbeb0, #c5dedb);
   display: block;
-  box-shadow: 0 5px 16px rgba(96, 72, 60, 0.13);
-  transition: transform 0.3s ease;
+  border-radius: 48% 48% 15px 15px;
+  border: 3px solid #fffdf8;
+  background: #dcece2;
+  transition: transform 0.35s ease;
 }
 
 .card img:hover {
-  transform: scale(1.06) rotate(2deg);
+  transform: scale(1.04) rotate(2deg);
 }
 
 /* ชื่อโปรไฟล์ */
 #profile-name {
   color: #60483c;
-  font-size: 23px;
+  font-size: 25px;
   font-weight: 700;
   text-align: center;
-  margin: 0 0 13px;
+  margin: 0 20px 8px;
   letter-spacing: 0.2px;
 }
 
 /* คำแนะนำตัว */
 .bio {
+  display: block;
+  width: fit-content;
+  max-width: calc(100% - 40px);
+  margin: 0 auto 28px;
+  padding: 9px 18px;
   color: #607e72;
-  background: #edf4ee;
+  background: #edf4ec;
   border: 1px solid #dce9dd;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
+  border-radius: 8px 18px 18px 18px;
+  font-size: 13px;
   line-height: 1.8;
-  padding: 12px 16px;
-  border-radius: 15px;
-  margin: 0 0 26px;
+  text-align: center;
 }
 
-/* หัวข้อย่อย */
-h3 {
-  color: #765747;
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0 0 13px;
-  padding-bottom: 9px;
-  border-bottom: 1.5px solid #e4e9df;
-  display: flex;
-  align-items: center;
+/* เนื้อหาภายใน */
+.card h3 {
+  color: #795a49;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 25px 25px 13px;
+  padding: 0 0 9px;
+  border-bottom: 1px solid #e8ded2;
 }
 
-/* ระยะห่างระหว่างหัวข้อ */
+.card h3::before {
+  content: "✳";
+  color: #91b6a4;
+  margin-right: 9px;
+}
+
+/* ระยะห่างแต่ละส่วน */
 .section-gap {
-  margin-top: 24px;
+  margin-top: 25px;
 }
 
-/* กล่องรายการ */
+/* กล่องข้อมูล */
 ul {
   list-style: none;
-  padding: 11px;
-  margin: 0;
-  background: #f7f3ec;
-  border: 1px solid #eee4d8;
-  border-radius: 17px;
+  padding: 0;
+  margin: 0 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
 }
 
 /* รายการข้อมูล */
 ul li {
-  background: #fffdf9;
+  min-width: 0;
+  background: #f7f2ea;
   color: #685044;
-  padding: 11px 14px;
-  margin-bottom: 9px;
-  border-radius: 11px;
-  border: 1px solid #eee6dc;
-  border-left: 4px solid #a9c8b8;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.65;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(96, 72, 60, 0.04);
+  padding: 12px 13px;
+  margin: 0;
+  border: 1px solid #eee4d8;
+  border-radius: 12px;
+  border-left: 3px solid #a9c8b8;
+  font-size: 13px;
+  line-height: 1.6;
   transition: all 0.22s ease;
 }
 
 ul li span {
-  color: #648d80;
-  font-weight: 600;
+  display: block;
+  color: #8a7565;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 3px;
 }
 
-ul li:last-child {
-  margin-bottom: 0;
-}
-
-/* เอฟเฟกต์เมื่อชี้เมาส์ */
 ul li:hover {
-  transform: translateX(4px);
-  background: #edf5ef;
-  border-left-color: #8aab9a;
-  box-shadow: 0 4px 10px rgba(96, 72, 60, 0.08);
+  background: #eaf2e9;
+  border-left-color: #8eafa0;
+  transform: translateY(-2px);
 }
 
-/* เอฟเฟกต์เมื่อคลิก */
-ul li:active {
-  transform: scale(0.98);
-}
-
-/* รายการทักษะแบบ Tag */
+/* ทักษะแบบ Tag */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 9px;
+  gap: 8px;
+  padding-bottom: 28px;
 }
 
 .skills-list li {
-  flex: 1 1 auto;
-  text-align: center;
-  margin-bottom: 0;
-  border: 1px solid #e5e9dd;
-  border-left: 1px solid #e5e9dd;
-  border-radius: 20px;
-  background: #f0f5ef;
-  color: #6b594b;
-  padding: 9px 14px;
-  box-shadow: none;
+  flex: 0 0 auto;
+  width: auto;
+  background: #eaf2e9;
+  color: #607e72;
+  border: 1px solid #d8e6d9;
+  border-radius: 30px;
+  padding: 8px 15px;
+  font-size: 12px;
+}
+
+.skills-list li::before {
+  content: "✿ ";
+  color: #967565;
 }
 
 .skills-list li:hover {
@@ -215,5 +215,29 @@ ul li:active {
   color: #fff9f1;
   border-color: #60483c;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(96, 72, 60, 0.13);
+}
+
+/* มือถือ */
+@media (max-width: 420px) {
+  body {
+    padding: 30px 14px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  .card {
+    border-radius: 18px;
+  }
+
+  ul {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .card h3 {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
 }
